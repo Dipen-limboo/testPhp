@@ -3,7 +3,7 @@ const input = seventh.querySelector("input");
 const button = seventh.querySelector("button");
 button.addEventListener("click", ()=>{
     alert("Your message is received");
-    seventh.querySelector("form").reset();
+    // seventh.querySelector("form").reset();
 })
 console.log("Sent");
 

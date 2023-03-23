@@ -1,4 +1,4 @@
-<?php require('./connection.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
+    <div class="header">
         <nav>
             <div class="logo">
-                <h3><span>T</span> Traflagar</h3>
+                <h3><span>T</span>rafalgar</h3>
             </div>
             <div class="navigator">
                 <ul>
@@ -27,7 +27,7 @@
                 </ul>
             </div>
         </nav>
-    </header>
+    </div>
     <section id="home">
         <div class="left1">
             <h4>Virtual healthcare for you</h4><br>
@@ -184,57 +184,35 @@
             <hr><br>
             <p> Have any questions? We'd love to hear from you.</p>
         </div>
-        <form action="index.php" method="get">
+        <form action="form.php" method="get">
+            <div class="form">
             <div class="namePhone">
                 <div>
-                    <label for="Name">Your Name</label><br>
+                    Your Name:<br>
                     <input type="text" name="name">
                 </div>
                 <div>
-                    <label for="Phone">Phone No</label><br>
+                    Phone No:<br>
                     <input type="tel" name="phone">
                 </div>
             </div>
             <div class="email">
-                <label for="email">Email ID</label><br>
+                Email ID: <br>
                 <input type="email" name="email">
             </div>
             <div class="message">
-                <label for="message">Your Message</label><br>
-                <textarea rows="12" cols="88" name="comment" form="usrform" name = "message"></textarea>
+                Your Message: <br>
+                <textarea rows="12" cols="88" name = "message"></textarea>
             </div>
+            </div>
+            <button type="submit">Send Message</button>
         </form>
-        <input type="submit">
-        <?php
-
-if(isset($_GET["name"]) && isset($_GET["phone"]) && isset($_GET["email"]) && isset($_GET["message"])){
-    $name = $_GET["name"];
-    echo "Dipen";
-    $phone = $_GET["phone"];
-    $email = $_GET["email"];
-    $message = $_GET["message"];
-
-// query insert into user_info with values
-$query = "INSERT INTO `user_info` VALUES('$name', '$phone', '$email', '$message');";
-    echo $query;die;
-echo "<br>";
-echo "<br>"; 
-
-if($connection->query($query) == True){
-    //redirect to a file that fetches all data
-    header('location:fetch.php');
-}
-else {
-    echo $connection -> error;
-}
-}
-?>
     </section>
     <footer>
         <div class="contents">
             <div class="div1">
                 <div class="logo1">
-                    <h3><span>T</span> Traflagar</h3>
+                    <h3><span>T</span>rafalgar</h3>
                 </div>
                 <p><br>Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone</p><br>
                 <p>©Trafalgar PTY LTD 2020. All rights reserved</p>
@@ -267,7 +245,6 @@ else {
         </div>
     </footer>
 
-   
     <script src="./JS/main.js"></script>
 </body>
 </html>
